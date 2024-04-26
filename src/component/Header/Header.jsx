@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/Design-Artistic-Art-PNG-Photos.png';
+import "./nav.css";
 
 const Header = () => {
 
@@ -12,7 +13,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar Nav-contain bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
