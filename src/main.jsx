@@ -9,6 +9,7 @@ import {
 import Root from './Root.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import HomePage from './Pages/HomePage.jsx';
+import AddCraft from './Pages/AddCraft/AddCraft.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
         path:"/",
         element:<HomePage></HomePage>
       },
+      {
+        path:'addcraft',
+        element:<AddCraft></AddCraft>
+      }
     ]
   },
 ]);

@@ -1,10 +1,13 @@
-import React from 'react';
+
+import ContenSection from '../component/ContenSection/ContenSection';
 import Banner from '../component/Header/Banner';
+
 
 const HomePage = () => {
     return (
         <div>
             <Banner></Banner>
+            <ContenSection></ContenSection>
         </div>
     );
 };
