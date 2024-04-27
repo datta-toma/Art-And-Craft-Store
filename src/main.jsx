@@ -10,6 +10,8 @@ import Root from './Root.jsx';
 import ErrorPage from './Pages/ErrorPage.jsx';
 import HomePage from './Pages/HomePage.jsx';
 import AddCraft from './Pages/AddCraft/AddCraft.jsx';
+import SingUp from './layout/SingUp.jsx';
+import Login from './layout/Login.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,7 +25,15 @@ const router = createBrowserRouter([
       {
         path:'addcraft',
         element:<AddCraft></AddCraft>
-      }
+      },
+      {
+        path:'/sign-up',
+        element:<SingUp></SingUp>
+      },
+      {
+        path:'/login',
+        element:<Login></Login>
+      },
     ]
   },
 ]);
