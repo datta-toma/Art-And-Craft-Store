@@ -5,10 +5,11 @@ import useAuth from '../hook/useAuth';
 import { useState } from 'react';
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
+import Spinner from "../layout/Spinner/Spinner";
 
 const Login = () => {
 
-    const {signInUser} = useAuth();
+    const {signInUser, loading} = useAuth();
   const [error, setError] = useState(null);
 
 
@@ -30,8 +31,6 @@ const Login = () => {
             if(result.user){
               navigate(from);
             }
-            // console.log(result.user);
-            // navigate("/")
           })
     
           .catch(error =>{
@@ -43,9 +42,12 @@ const Login = () => {
           text: 'Email and password do not match!',
         });
           })
+  };
 
-        
-      };
+//   spinner
+  if (loading) {
+    return <Spinner />; 
+  }
 
     
     return (

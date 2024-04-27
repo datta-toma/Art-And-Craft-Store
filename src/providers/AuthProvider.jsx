@@ -49,20 +49,23 @@ const AuthProvider = ({children}) => {
     // logout
     const logout = () =>{
         setUser(null)
+        setLoading(true)
         signOut(auth) 
     }
 
     // observable
     useEffect(() =>{
        const unsubscribe = onAuthStateChanged(auth, (user) => {
-        if (user) {
-            setUser(user);
-            setLoading(false);
-          }
-          else {
-            setUser(null);
-            setLoading(false);
-          }
+        setLoading(false)
+        setUser(user);
+        // if (user) {
+        //     setUser(user);
+        //     setLoading(false);
+        //   }
+        //   else {
+        //     setUser(null);
+        //     setLoading(false);
+        //   }
            
           });
           return () => unsubscribe();

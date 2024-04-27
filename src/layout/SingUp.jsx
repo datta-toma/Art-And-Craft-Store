@@ -5,11 +5,12 @@ import { FaEyeSlash, FaEye  } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hook/useAuth";
 import SocialLogin from "./SocialLogin";
+import Spinner from "../layout/Spinner/Spinner";
 
 const SingUp = () => {
 
    
-    const {createUser} = useAuth() || {};
+    const {createUser, loading} = useAuth() || {};
     const [error, setError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
   
@@ -24,51 +25,7 @@ const SingUp = () => {
       } = useForm();
       const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
       const emailPattern = /^\w+([.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
-    //   const onSubmit = (data) =>{
-    //     const {email, password} = data
-    //     createUser(email, password)
-    //     .then((result) =>{
-    //       if(result.user){
-    //         navigate(from);
-    //       }
-            
-    //     //   new user has been created
-    //     const createAt = result.user?.metadata?.creationTime;
-    //     const user ={email, createAt: createAt};
-    //     fetch('http://localhost:5000/user', {
-    //         method:'POST',
-    //         headers: {
-    //             'content-type' : 'application/json'
-    //         },
-    //         body:JSON.stringify(user)
-    //     })
-    //     .then(res => res.json())
-    //     .then(data =>{
-    //         if(data.insertedId){
-    //             console.log('user added to the database')
-    //         }
-            
-    //     })
-        
-         
-    //       // Show success message using SweetAlert
-    //    Swal.fire({
-    //     icon: 'success',
-    //     title: 'Success',
-    //     text: 'Login successfully!',
-    //   });
-    //     })
-    //     .catch((error) => {
-    //       Swal.fire({
-    //         icon: "error",
-    //         title: "Error",
-    //         text: error.message, 
-    //       });
-    //     });
-    //   } 
-
-    const onSubmit = (data) => {
+      const onSubmit = (data) => {
         const { email, password } = data;
     
         if (!emailPattern.test(email)) {
@@ -125,9 +82,14 @@ const SingUp = () => {
           });
           
       };
+// spinner
+      if (loading) {
+        return <Spinner></Spinner>; 
+      }
 
     return (
         <div>
+             {loading && <Spinner />}
              <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
