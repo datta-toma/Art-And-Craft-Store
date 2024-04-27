@@ -1,18 +1,48 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/Design-Artistic-Art-PNG-Photos.png';
+import light from '../../assets/lightimg.png';
+import dark from '../../assets/darkimg.png';
 import "./nav.css";
+import useAuth from '../../hook/useAuth';
+import { RiLogoutCircleRLine } from "react-icons/ri";
+import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+
 
 const Header = () => {
+  const navigate = useNavigate();
+  const [darkMode, setDarkMode] = useState(false);
+ 
+  const {logout, user} = useAuth()
+  console.log(user)
+
+  useEffect(() => {
+    document.body.className = darkMode ? 'dark-mode' : 'light-mode';
+  }, [darkMode]); 
+
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("Successfully logged out");
+      })
+      .catch((err) => {
+        toast.error(`Logout failed: ${err.message}`);
+      });
+  };
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode); 
+  };
 
     const links = <>
     <li><NavLink to="/" >Home</NavLink></li>
     <li><NavLink to="/about">Art And Craft</NavLink></li>
-    <li><NavLink to="/update">Add Craft</NavLink></li>
+    <li><NavLink to="/add-craft">Add Craft</NavLink></li>
     <li><NavLink to="/update">Add Craft List</NavLink></li>
     </>
 
     return (
-        <div>
+        <div className={`navbar Nav-contain ${darkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className="navbar Nav-contain bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -31,13 +61,48 @@ const Header = () => {
     {links}
     </ul>
   </div>
-  <div className="navbar-end">
-  
-  <button className="btn btn-sm  btn-ghost">Login</button>
-  <button className="btn btn-sm  btn-ghost">Sing Up</button>
-  </div>
-</div>
+
+
+<div className="navbar-end">
+          <div className="relative md:border-l flex items-center justify-end w-full md:w-auto pl-5">
+            <div className="w-[50px]">
+              <button onClick={toggleDarkMode}  className="p-1 mr-3 flex items-center">
+                <img
+                  className="md:w-full w-10 object-cover"
+                  src={darkMode ? light : dark}
+                  alt={darkMode ? 'Light Mode' : 'Dark Mode'}
+                />
+              </button>
+            </div>
+
+            {user ? (
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-left" data-tip={user?.displayName  || user.email}>
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL || "https://i.postimg.cc/c4RMWFc4/unnamed.png"} alt="User Avatar" />
+                  </div>
+                </label>
+                
+              
+                    <button onClick={handleLogout} className="btn btn-sm btn-glass">
+                      <RiLogoutCircleRLine></RiLogoutCircleRLine> Logout 
+                    </button>
+                  
+                
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-sm  btn-ghost">Login</button>
+              </Link>
+            )}
+            <button className="btn btn-sm  btn-ghost ">Sign Up</button>
+          </div>
         </div>
+      </div>
+
+
+ </div>
+
     );
 };
 

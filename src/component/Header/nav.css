@@ -3,3 +3,27 @@
     background-size: cover;
     background-position: center; 
 }
+
+body.dark-mode {
+    background-color: #121212; 
+    color: white; 
+  }
+  
+  body.light-mode {
+    background-color: white; 
+    color: black; 
+  }
+  .navbar {
+    background-color: inherit;
+  }
+  .dropdown-menu {
+    background-color: inherit; 
+  }
+  .btn {
+    background-color: inherit;
+  }
+  
+  a {
+    color: inherit; 
+  }
+  

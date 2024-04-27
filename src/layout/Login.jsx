@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import useAuth from '../hook/useAuth';
 import { useState } from 'react';
 import Swal from "sweetalert2";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
 
@@ -81,7 +82,9 @@ const Login = () => {
                         <label>
                             Please here? <Link to="/sign-up" className="label-text-alt link link-hover">Sign Up</Link>
                         </label>
+                        <SocialLogin></SocialLogin>
                     </form>
+                    
                     </div>
                 </div>
             </div>

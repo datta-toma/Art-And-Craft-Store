@@ -24,7 +24,7 @@ const router = createBrowserRouter([
         element:<HomePage></HomePage>
       },
       {
-        path:'addcraft',
+        path:'add-craft',
         element:<AddCraft></AddCraft>
       },
       {
