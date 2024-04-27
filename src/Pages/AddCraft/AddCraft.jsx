@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import Swal from "sweetalert2";
 
 const AddCraft = () => {
 
@@ -33,6 +33,13 @@ const AddCraft = () => {
         .then(res => res.json())
         .then(data =>{
             console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    icon: "success",
+                    title: "Added successfully",
+                    text: " successfully.",
+                  });
+            }
         })
     }
 

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
 import Spinner from "../layout/Spinner/Spinner";
+import "./log.css"; 
 
 const Login = () => {
 
@@ -52,7 +53,7 @@ const Login = () => {
     
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen log-contain bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -82,7 +83,9 @@ const Login = () => {
                         <button className="btn btn-primary">Login</button>
                         </div>
                         <label>
-                            Please here? <Link to="/sign-up" className="label-text-alt link link-hover">Sign Up</Link>
+                            Please here? <Link to="/sign-up" className="label-text-alt link link-hover ">
+                              <span className='text-blue-800 ml-2'>Sign Up</span>
+                            </Link>
                         </label>
                         <SocialLogin></SocialLogin>
                     </form>

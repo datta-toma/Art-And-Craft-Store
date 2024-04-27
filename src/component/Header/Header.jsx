@@ -36,7 +36,7 @@ const Header = () => {
 
     const links = <>
     <li><NavLink to="/" >Home</NavLink></li>
-    <li><NavLink to="/about">Art And Craft</NavLink></li>
+    <li><NavLink to="/art">Art And Craft</NavLink></li>
     <li><NavLink to="/add-craft">Add Craft</NavLink></li>
     <li><NavLink to="/update">Add Craft List</NavLink></li>
     </>
@@ -54,7 +54,7 @@ const Header = () => {
       </ul>
     </div>
     <img className='w-24' src={logo} alt=''></img>
-    <a className="btn btn-ghost text-xl">ARTCRAFT</a>
+    <a className="btn btn-ghost text-xl md:text-2xl font-extrabold">ARTCRAFT</a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -99,10 +99,10 @@ const Header = () => {
             ) : (
               <>
               <Link to="/login">
-                <button className="btn btn-sm  btn-ghost">Login</button>
+                <button className="btn btn-sm md:text-xl btn-ghost">Login</button>
               </Link>
               <Link to="/sign-up">
-                <button className="btn btn-sm btn-ghost">Sign Up</button>
+                <button className="btn btn-sm md:text-xl btn-ghost mr-4">Sign Up</button>
               </Link>
             </>
             )}

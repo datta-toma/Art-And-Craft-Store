@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hook/useAuth";
 import SocialLogin from "./SocialLogin";
 import Spinner from "../layout/Spinner/Spinner";
+import "./log.css"; 
 
 const SingUp = () => {
 
@@ -90,7 +91,7 @@ const SingUp = () => {
     return (
         <div>
              {loading && <Spinner />}
-             <div className="hero min-h-screen bg-base-200">
+             <div className="hero min-h-screen log-contain bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                     <form onSubmit={handleSubmit(onSubmit)} className="card-body">
@@ -142,8 +143,8 @@ const SingUp = () => {
                                     </div>
                                          <label>
                                             Have an account? {""}
-                                            <Link to ="/login" className="lebel-text-alt link link-hover">
-                                            Please Login
+                                            <Link to ="/login" className="lebel-text-alt link link-hover ">
+                                            <span className="text-blue-800">Please Login</span>
                                             </Link>
                                         </label>
                             <SocialLogin></SocialLogin>              
