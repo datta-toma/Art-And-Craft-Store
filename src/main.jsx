@@ -12,6 +12,7 @@ import HomePage from './Pages/HomePage.jsx';
 import AddCraft from './Pages/AddCraft/AddCraft.jsx';
 import SingUp from './layout/SingUp.jsx';
 import Login from './layout/Login.jsx';
+import AuthProvider from './providers/AuthProvider.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+        <AuthProvider>
         <RouterProvider router={router} />
+        </AuthProvider>
   </React.StrictMode>,
 )
