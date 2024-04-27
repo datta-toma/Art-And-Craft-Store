@@ -22,14 +22,76 @@ const SingUp = () => {
         handleSubmit,
         formState: { errors },
       } = useForm();
-      const onSubmit = (data) =>{
-        const {email, password} = data
+      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+      const emailPattern = /^\w+([.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+    //   const onSubmit = (data) =>{
+    //     const {email, password} = data
+    //     createUser(email, password)
+    //     .then((result) =>{
+    //       if(result.user){
+    //         navigate(from);
+    //       }
+            
+    //     //   new user has been created
+    //     const createAt = result.user?.metadata?.creationTime;
+    //     const user ={email, createAt: createAt};
+    //     fetch('http://localhost:5000/user', {
+    //         method:'POST',
+    //         headers: {
+    //             'content-type' : 'application/json'
+    //         },
+    //         body:JSON.stringify(user)
+    //     })
+    //     .then(res => res.json())
+    //     .then(data =>{
+    //         if(data.insertedId){
+    //             console.log('user added to the database')
+    //         }
+            
+    //     })
+        
+         
+    //       // Show success message using SweetAlert
+    //    Swal.fire({
+    //     icon: 'success',
+    //     title: 'Success',
+    //     text: 'Login successfully!',
+    //   });
+    //     })
+    //     .catch((error) => {
+    //       Swal.fire({
+    //         icon: "error",
+    //         title: "Error",
+    //         text: error.message, 
+    //       });
+    //     });
+    //   } 
+
+    const onSubmit = (data) => {
+        const { email, password } = data;
+    
+        if (!emailPattern.test(email)) {
+          Swal.fire({
+            icon: "error",
+            title: "Invalid Email",
+            text: "Please enter a valid email address.",
+          });
+          return;
+        }
+    
+        if (!passwordPattern.test(password)) {
+          Swal.fire({
+            icon: "error",
+            title: "Weak Password",
+            text: "Password must have at least 6 characters, one uppercase letter, one number, and one special character.",
+          });
+          return;
+        }
+    
         createUser(email, password)
-        .then((result) =>{
-          if(result.user){
-            navigate(from);
-          }
-        //   new user has been created
+          .then((result) => {
+             //   new user has been created
         const createAt = result.user?.metadata?.creationTime;
         const user ={email, createAt: createAt};
         fetch('http://localhost:5000/user', {
@@ -46,23 +108,23 @@ const SingUp = () => {
             }
             
         })
-        
-         
-          // Show success message using SweetAlert
-       Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'Login successfully!',
-      });
-        })
-        .catch((error) => {
-          Swal.fire({
-            icon: "error",
-            title: "Error",
-            text: error.message, 
+            Swal.fire({
+              icon: "success",
+              title: "Account Created",
+              text: "Your account has been created successfully.",
+            });
+    
+            navigate(from);
+          })
+          .catch((err) => {
+            Swal.fire({
+              icon: "error",
+              title: "Signup Error",
+              text: err.message,
+            });
           });
-        });
-      } 
+          
+      };
 
     return (
         <div>

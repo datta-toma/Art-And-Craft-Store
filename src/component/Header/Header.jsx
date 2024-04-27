@@ -1,4 +1,4 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink,} from 'react-router-dom';
 import logo from '../../assets/Design-Artistic-Art-PNG-Photos.png';
 import light from '../../assets/lightimg.png';
 import dark from '../../assets/darkimg.png';
@@ -7,10 +7,10 @@ import useAuth from '../../hook/useAuth';
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+import { Tooltip } from 'react-tooltip';
 
 
 const Header = () => {
-  const navigate = useNavigate();
   const [darkMode, setDarkMode] = useState(false);
  
   const {logout, user} = useAuth()
@@ -77,11 +77,17 @@ const Header = () => {
 
             {user ? (
               <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-left" data-tip={user?.displayName  || user.email}>
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL || "https://i.postimg.cc/c4RMWFc4/unnamed.png"} alt="User Avatar" />
-                  </div>
-                </label>
+               <label tabIndex={0} className="btn btn-ghost btn-circle" >
+               <Tooltip
+                  // Don't forget the `.`!
+                  anchorSelect=".btn-circle"
+                  content={user?.displayName  || user.email}
+                />
+              <div className="w-10 rounded-full">
+                <img src={user?.photoURL || 'https://i.postimg.cc/c4RMWFc4/unnamed.png'} alt="User Avatar" />
+              </div>
+            </label>
+                {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-left" data-tip={user?.displayName  || user.email}> */}
                 
               
                     <button onClick={handleLogout} className="btn btn-sm btn-glass">
@@ -91,11 +97,16 @@ const Header = () => {
                 
               </div>
             ) : (
+              <>
               <Link to="/login">
                 <button className="btn btn-sm  btn-ghost">Login</button>
               </Link>
+              <Link to="/sign-up">
+                <button className="btn btn-sm btn-ghost">Sign Up</button>
+              </Link>
+            </>
             )}
-            <button className="btn btn-sm  btn-ghost ">Sign Up</button>
+            
           </div>
         </div>
       </div>
