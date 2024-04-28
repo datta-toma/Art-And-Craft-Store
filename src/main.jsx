@@ -15,6 +15,9 @@ import Login from './layout/Login.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import AllArtCraft from './Pages/AllArtCraft/AllArtCraft.jsx';
 import AddSection from './component/AddSection/AddSection.jsx';
+import CraftCardDetails from './Pages/AllArtCraft/CraftCardDetails.jsx';
+import MyCardList from './Pages/MyCardList/MyCardList.jsx';
+
 
 
 const router = createBrowserRouter([
@@ -41,11 +44,21 @@ const router = createBrowserRouter([
         element:<Login></Login>
       },
       {
-        path:'/art',
+        path:'/craft',
         element:<AllArtCraft></AllArtCraft>,
-        loader:()=>fetch('http://localhost:5000/craft')
-        
+        loader:() => fetch('http://localhost:5000/craft')
       },
+      {
+        path:'/craft/:id',
+         loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`),
+        element:<CraftCardDetails></CraftCardDetails>,
+       
+      },
+      {
+        path:'/list',
+        element:<MyCardList></MyCardList>,
+      },
+      
    
     ]
   },

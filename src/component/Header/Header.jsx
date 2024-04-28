@@ -13,7 +13,7 @@ import { Tooltip } from 'react-tooltip';
 const Header = () => {
   const [darkMode, setDarkMode] = useState(false);
  
-  const {logout, user} = useAuth()
+  const {logout, user} = useAuth();
   console.log(user)
 
   useEffect(() => {
@@ -36,9 +36,9 @@ const Header = () => {
 
     const links = <>
     <li><NavLink to="/" >Home</NavLink></li>
-    <li><NavLink to="/art">Art And Craft</NavLink></li>
+    <li><NavLink to="/craft">All Art And Craft</NavLink></li>
     <li><NavLink to="/add-craft">Add Craft</NavLink></li>
-    <li><NavLink to="/update">Add Craft List</NavLink></li>
+    <li><NavLink to="/list">Add Craft List</NavLink></li>
     </>
 
     return (

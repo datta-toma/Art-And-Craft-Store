@@ -6,6 +6,7 @@ import Banner from '../component/Header/Banner';
 import { useLoaderData } from "react-router-dom";
 import AboutUs from './AboutUs';
 import ArtCraftSection from '../component/ArtCraftSection/ArtCraftSection';
+import ContactUs from './ContactUs';
 
 
 
@@ -30,6 +31,7 @@ const HomePage = () => {
         )}
         
         <AboutUs></AboutUs>
+        <ContactUs></ContactUs>
         </div>
            
         </div>
