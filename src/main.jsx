@@ -14,6 +14,8 @@ import SingUp from './layout/SingUp.jsx';
 import Login from './layout/Login.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import AllArtCraft from './Pages/AllArtCraft/AllArtCraft.jsx';
+import AddSection from './component/AddSection/AddSection.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,7 @@ const router = createBrowserRouter([
       {
         path:"/",
         element:<HomePage></HomePage>,
+        loader:() => fetch('http://localhost:5000/craft')
       },
       {
         path:'add-craft',
@@ -42,7 +45,8 @@ const router = createBrowserRouter([
         element:<AllArtCraft></AllArtCraft>,
         loader:()=>fetch('http://localhost:5000/craft')
         
-      }
+      },
+   
     ]
   },
 ]);

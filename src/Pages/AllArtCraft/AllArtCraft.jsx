@@ -1,7 +1,9 @@
 import { useLoaderData } from "react-router-dom";
 import CraftCrad from "./CraftCrad";
+
 const AllArtCraft = () => {
     const crafts = useLoaderData();
+    
     return (
         <div>
           <h2 className="text-5xl font-extrabold mt-10 text-center">All Art and Craft</h2>
