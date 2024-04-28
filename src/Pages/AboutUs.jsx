@@ -1,16 +1,14 @@
-
+import img from'../assets/painting.jpeg';
 
 const AboutUs = () => {
     return (
         <div>
             <h2 className="text-5xl font-extrabold text-center">About Us</h2>
-           <div className="herobg-base-200">
-                <div className="hero-content flex-col lg:flex-row">
-                    <img src="https://daisyui.com/images/stock/photo-1635805737707-575885ab0820.jpg" className="max-w-sm rounded-lg shadow-2xl" />
+           <div className="hero bg-base-200 mt-16">
+                <div className="hero-content flex-col lg:flex-row  gap-10">
+                    <img  src={img} className="max-w-sm  rounded-lg shadow-2xl lg:ml-28" />
                     <div>
-                    <h1 className="text-5xl font-bold">Box Office News!</h1>
-                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-                    <button className="btn btn-primary">Get Started</button>
+                    <p className="py-6 font-medium">We, Venus Art Gallary at Malad West in Mumbai, Maharashtra, have formed with the intention of expanding the market for new forms of art paintings that are produced cost-effectively to  all our clientele.We have teamed up with leading artists having a steep inclination in art to do our best & serve eye-warming paintings to our valued coustomers spread throughout the world. Our customer's growing faith and confidence in us is our most valued possession.</p>
                     </div>
                 </div>
                 </div> 
