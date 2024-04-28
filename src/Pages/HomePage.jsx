@@ -5,6 +5,7 @@ import ContenSection from '../component/ContenSection/ContenSection';
 import Banner from '../component/Header/Banner';
 
 import { useLoaderData } from "react-router-dom";
+import AboutUs from './AboutUs';
 
 
 
@@ -21,6 +22,7 @@ const HomePage = () => {
         ) : (
           <p>Loading</p> 
         )}
+        <AboutUs></AboutUs>
         </div>
            
         </div>

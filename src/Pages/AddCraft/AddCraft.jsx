@@ -3,8 +3,6 @@ import Swal from "sweetalert2";
 
 const AddCraft = () => {
 
-    const [customization, setCustomization] = useState("Yes");
-
 
     const handleAddCraft = event =>{
         event.preventDefault();
@@ -17,9 +15,13 @@ const AddCraft = () => {
         const price = form.price.value;
         const rating = form.rating.value;
         const url = form.url.value;
+        const stockStatus = form.stockStatus.value;
+        const User_Email = form.User_Email.value;
+        const User_Name = form.User_Name.value;
         const processing_time = form.processing_time.value;
+        const Customization  = form.Customization .value;
 
-        const newCraft ={item_name, subcategory_name, short_description, price, rating , url, processing_time}
+        const newCraft ={item_name, subcategory_name, short_description, price, rating , url, processing_time, stockStatus, User_Email, User_Name, Customization }
         console.log(newCraft)
 
         // send data to the server
@@ -63,13 +65,19 @@ const AddCraft = () => {
                             <label className="block mt-4 mb-2">Price</label>
                                  <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter Price"id="Price"name="price"></input>
 
-                            <label className="block mt-4 mb-2">Customization</label>
-                                 <select  className="w-full p-2 border rounded-md focus:outline-black"
-                                name="customization"
-                                value={customization}onChange={(e) => setCustomization(e.target.value)}>
-                                  <option value="Yes" selected>Yes</option>
+                                 <label className="block mt-4 mb-2">Stock Status</label>
+                                 <select className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter stockStatus"id="stockStatus"name="stockStatus">
+                                 <option value="In Stock" selected>In Stock</option>
+                                  <option value="Made to Order" selected>Made to Order</option>
+                                 </select>
+
+                                 <label className="block mt-4 mb-2">Customization</label>
+                                 <select className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter Customization"id="Customization"name="Customization">
+                                 <option value="Yes" selected>Yes</option>
                                   <option value="No" selected>No</option>
                                  </select>
+
+                            
                                
                         </div>
                         {/* Right side */}
@@ -84,6 +92,13 @@ const AddCraft = () => {
                                      <input className="w-full p-2 border rounded-md focus:outline-black"type="number"placeholder="Enter Rating"id="rating"name="rating"></input>
                                 <label className="block mb-2 mt-4 ">Processing Time</label>
                                      <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Processing Time"id="Processing Time"name="processing_time"></input>
+
+                                     <label className="block mb-2 mt-4 ">User Email</label>
+                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="email"placeholder="User Email"id="email"name="User_Email"></input>
+
+                                     <label className="block mb-2 mt-4 ">User Name</label>
+                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="User Name"id="email"name="User_Name"></input>
+
                         </div>
                     </div>
 
