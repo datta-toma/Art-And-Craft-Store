@@ -5,7 +5,7 @@ import useAuth from '../hook/useAuth';
 import { useState } from 'react';
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
-import Spinner from "../layout/Spinner/Spinner";
+// import Spinner from "../layout/Spinner/Spinner";
 import "./log.css"; 
 
 const Login = () => {
@@ -45,10 +45,10 @@ const Login = () => {
           })
   };
 
-//   spinner
-  if (loading) {
-    return <Spinner />; 
-  }
+// //   spinner
+//   if (loading) {
+//     return <Spinner />; 
+//   }
 
     
     return (

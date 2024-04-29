@@ -14,9 +14,9 @@ import SingUp from './layout/SingUp.jsx';
 import Login from './layout/Login.jsx';
 import AuthProvider from './providers/AuthProvider.jsx';
 import AllArtCraft from './Pages/AllArtCraft/AllArtCraft.jsx';
-import AddSection from './component/AddSection/AddSection.jsx';
 import CraftCardDetails from './Pages/AllArtCraft/CraftCardDetails.jsx';
 import MyCardList from './Pages/MyCardList/MyCardList.jsx';
+import PrivateRouter from './component/PrivateRouter/PrivateRouter.jsx';
 
 
 
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path:'add-craft',
-        element:<AddCraft></AddCraft>
+        element:<PrivateRouter><AddCraft></AddCraft></PrivateRouter>
       },
       {
         path:'/sign-up',
@@ -51,12 +51,12 @@ const router = createBrowserRouter([
       {
         path:'/craft/:id',
          loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`),
-        element:<CraftCardDetails></CraftCardDetails>,
+        element:<PrivateRouter><CraftCardDetails></CraftCardDetails></PrivateRouter>,
        
       },
       {
         path:'/list',
-        element:<MyCardList></MyCardList>,
+        element:<PrivateRouter><MyCardList></MyCardList></PrivateRouter>,
       },
       
    

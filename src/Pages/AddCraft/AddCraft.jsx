@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
+import useAuth from "../../hook/useAuth";
 
 const AddCraft = () => {
-
+    const { user} = useAuth();
 
     const handleAddCraft = event =>{
         event.preventDefault();
+        console.log(user)
 
         const form = event.target;
 
@@ -16,12 +18,13 @@ const AddCraft = () => {
         const rating = form.rating.value;
         const url = form.url.value;
         const stockStatus = form.stockStatus.value;
-        const User_Email = form.User_Email.value;
-        const User_Name = form.User_Name.value;
+        const email = form.email.value;
+        const name = form.name.value;
         const processing_time = form.processing_time.value;
-        const Customization  = form.Customization .value;
+        const customization  = form.customization .value;
+       
 
-        const newCraft ={item_name, subcategory_name, short_description, price, rating , url, processing_time, stockStatus, User_Email, User_Name, Customization }
+        const newCraft ={item_name, subcategory_name, short_description, price, rating , url, processing_time, stockStatus, email, name, customization, }
         console.log(newCraft)
 
         // send data to the server
@@ -94,10 +97,10 @@ const AddCraft = () => {
                                      <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Processing Time"id="Processing Time"name="processing_time"></input>
 
                                      <label className="block mb-2 mt-4 ">User Email</label>
-                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="email"placeholder="User Email"id="email"name="User_Email"></input>
+                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="email"placeholder="User Email"id="email"name="email"></input>
 
                                      <label className="block mb-2 mt-4 ">User Name</label>
-                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="User Name"id="email"name="User_Name"></input>
+                                     <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="User Name"id="name"name="name"></input>
 
                         </div>
                     </div>

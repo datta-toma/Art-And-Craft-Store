@@ -5,7 +5,7 @@ import { FaEyeSlash, FaEye  } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hook/useAuth";
 import SocialLogin from "./SocialLogin";
-import Spinner from "../layout/Spinner/Spinner";
+// import Spinner from "../layout/Spinner/Spinner";
 import "./log.css"; 
 
 const SingUp = () => {
@@ -83,14 +83,14 @@ const SingUp = () => {
           });
           
       };
-// spinner
-      if (loading) {
-        return <Spinner></Spinner>; 
-      }
+// // spinner
+//       if (loading) {
+//         return <Spinner></Spinner>; 
+//       }
 
     return (
         <div>
-             {loading && <Spinner />}
+             
              <div className="hero min-h-screen log-contain bg-base-200">
                 <div className="hero-content flex-col ">
                     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -111,7 +111,7 @@ const SingUp = () => {
                                         <span className="label-text">Email</span>
                                         </label>
                                         <input type="email" placeholder="email" className="input input-bordered" required  {...register("email", { required: true })} />
-                                        {errors.email && <span>This field is required</span>}
+                                        
                              </div>
 
                                    <div className="form-control">
