@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Rotate} from "react-awesome-reveal";
 
 const UpdateCraft = () => {
   const { id } = useParams(); 
@@ -58,15 +59,17 @@ const UpdateCraft = () => {
 
           {/* left side */}
           <div className="flex-1">
-             <label className="block mb-2 "> Item Name</label>
-                                 <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
-                                  defaultValue={craft?.item_name}
-                                 placeholder=" Item Name" id="name"name="item_name"></input>
+             
+            <Rotate>
+            <label className="block mb-2 "> Item Name</label>
+                <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
+                defaultValue={craft?.item_name}
+               placeholder=" Item Name" id="name"name="item_name"></input>
 
             <label className="block mb-2 "> Subcategory  Name</label>
-                                 <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
-                                 defaultValue={craft?.subcategory_name}
-                                 placeholder=" Subcategory  Name" id="name"name="subcategory_name"></input>
+                <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
+                defaultValue={craft?.subcategory_name}
+                placeholder=" Subcategory  Name" id="name"name="subcategory_name"></input>
                             
             <label className="block mt-4 mb-2">Price</label>
                  <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
@@ -89,13 +92,15 @@ const UpdateCraft = () => {
              <option value="No" selected>No</option>
             </select>
 
-                            
+                          </Rotate>    
                                
-                        </div>
+              </div>
 
 
           {/* Right side */}
          <div className="flex-1">
+           
+             <Rotate>
             <label className="block mb-2">URL</label>
                 <input className="w-full p-2 border rounded-md focus:outline-black"type="text"
                  defaultValue={craft?.url}
@@ -113,7 +118,7 @@ const UpdateCraft = () => {
                   defaultValue={craft?.processing_time}
                  placeholder="Processing Time"id="Processing Time"name="processing_time"></input>
 
-                                   
+               </Rotate>               
 
                         </div>
         </div>
@@ -121,11 +126,13 @@ const UpdateCraft = () => {
         
 
         
+        <Rotate>
         <input
           className="px-4 w-full py-2 mt-4 bg-slate-400 text-white cursor-pointer font-semibold"
           type="submit"
           value="Update Craft"
         />
+        </Rotate>
       </form>
     </div>
   );

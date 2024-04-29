@@ -42,7 +42,7 @@ const Header = () => {
     </>
 
     return (
-        <div className={`navbar Nav-contain ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <div className={`navbar  Nav-contain ${darkMode ? 'dark-mode' : 'light-mode'}`}>
             <div className="navbar Nav-contain bg-base-100">
   <div className="navbar-start">
     <div className="dropdown">
@@ -53,7 +53,7 @@ const Header = () => {
       {links}
       </ul>
     </div>
-    <img className='w-24' src={logo} alt=''></img>
+    <img className='w-12 lg:w-28' src={logo} alt=''></img>
     <a className="btn btn-ghost text-xl md:text-2xl font-extrabold">ARTCRAFT</a>
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -63,7 +63,7 @@ const Header = () => {
   </div>
 
 
-<div className="navbar-end">
+<div className="navbar-end ">
           <div className="relative md:border-l flex items-center justify-end w-full md:w-auto pl-5">
             <div className="w-[50px]">
               <button onClick={toggleDarkMode}  className="p-1 mr-3 flex items-center">
@@ -84,7 +84,7 @@ const Header = () => {
                   content={user?.displayName  || user.email}
                 />
               <div className="w-10 rounded-full">
-                <img src={user?.photoURL || 'https://i.postimg.cc/c4RMWFc4/unnamed.png'} alt="User Avatar" />
+                <img src={user?.photoURL || 'https://i.postimg.cc/x1qf83JV/serious-man-formal-jacket-tie-standing-camera-1262-20387.avif'} alt="User Avatar" />
               </div>
             </label>
                 {/* <label tabIndex={0} className="btn btn-ghost btn-circle avatar tooltip  tooltip-left" data-tip={user?.displayName  || user.email}> */}

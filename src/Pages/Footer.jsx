@@ -3,6 +3,7 @@ import { RiYoutubeLine } from "react-icons/ri";
 import { CiTwitter } from "react-icons/ci";
 import logo from '../assets/Design-Artistic-Art-PNG-Photos.png';
 
+
 const Footer = () => {
     return (
         <div>

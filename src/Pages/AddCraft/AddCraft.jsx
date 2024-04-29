@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Swal from "sweetalert2";
 import useAuth from "../../hook/useAuth";
+import { Rotate } from "react-awesome-reveal";
 
 const AddCraft = () => {
     const { user} = useAuth();
@@ -59,6 +60,7 @@ const AddCraft = () => {
                     
                     {/* left side */}
                         <div className="flex-1">
+                            <Rotate>
                             <label className="block mb-2 "> Item Name</label>
                                  <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder=" Item Name" id="name"name="item_name"></input>
 
@@ -79,12 +81,14 @@ const AddCraft = () => {
                                  <option value="Yes" selected>Yes</option>
                                   <option value="No" selected>No</option>
                                  </select>
+                            </Rotate>
 
                             
                                
                         </div>
                         {/* Right side */}
                           <div className="flex-1">
+                               <Rotate>
                                <label className="block mb-2">URL</label>
                                      <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter Image URL"id="url"name="url"></input>
                                 <label className="block mb-2 mt-4 ">Short Description</label>
@@ -101,12 +105,15 @@ const AddCraft = () => {
 
                                      <label className="block mb-2 mt-4 ">User Name</label>
                                      <input className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="User Name"id="name"name="name"></input>
+                               </Rotate>
 
                         </div>
                     </div>
 
-                    <input
+                   <Rotate>
+                   <input
                         className="px-4 w-full py-2 mt-4 rounded hover:bg-cyan-600  bg-slate-400 duration-200 text-white cursor-pointer font-semibold"type="submit"value="Add Craft"></input>
+                   </Rotate>
                 </form>
             </div>
         </div>

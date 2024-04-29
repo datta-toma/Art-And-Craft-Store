@@ -2,11 +2,12 @@
 import { useState, useEffect } from "react"; 
 import ArtCraftCardSection from "./ArtCraftCardSection";
 
+
 const ArtCraftSection = ({crafts}) => {
     const [fareastCrafts, setFareastCrafts] = useState([]);
 
 useEffect(() => {
-   if (crafts && crafts.length > 0) {
+   if (crafts && crafts.length > 6) {
     setFareastCrafts(crafts.slice(-6)); 
    }
  }, [crafts]);

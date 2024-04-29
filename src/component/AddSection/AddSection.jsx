@@ -12,8 +12,6 @@ useEffect(() => {
    }
  }, [crafts]);
 
-//   const fareastCrafts = crafts.slice(-6);
- 
   return (
    <div>
    
@@ -24,16 +22,6 @@ useEffect(() => {
    }
    </div>
 
-   {/* <h3 className="text-3xl mt-10 text-center">Fareast Section</h3>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:m-28">
-        {
-          fareastCrafts.map((craft) => (
-            <AddSectionCard key={craft._id} craft={craft} />
-          ))
-        }
-      </div> */}
-
-   
  </div>
   );
 };

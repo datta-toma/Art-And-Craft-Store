@@ -18,17 +18,10 @@ const HomePage = () => {
            <div className="space-y-10"> 
             <Banner />
             <ContenSection />
-           {data ? ( 
-          <AddSection crafts={data} /> 
-        ) : (
-          <p>Loading</p> 
-        )}
-
-        {data ? ( 
-          <ArtCraftSection crafts={data} /> 
-        ) : (
-          <p>Loading</p> 
-        )}
+        
+          <AddSection crafts={data}> </AddSection>
+       
+          <ArtCraftSection crafts={data}> </ArtCraftSection>
         
         <AboutUs></AboutUs>
         <ContactUs></ContactUs>

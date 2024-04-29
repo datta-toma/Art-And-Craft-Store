@@ -4,14 +4,17 @@ import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration VITE_APPID
+
+console.log('inside firebase config', import.meta.env.VITE_PASS)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCOQnCLuqqpDWaL6cFVB1ZzVvjM9CWExtQ",
-  authDomain: "art-and-craft-store-2f554.firebaseapp.com",
-  projectId: "art-and-craft-store-2f554",
-  storageBucket: "art-and-craft-store-2f554.appspot.com",
-  messagingSenderId: "788636725649",
-  appId: "1:788636725649:web:138a0647ceb7b70af3ea30"
+  apiKey: import.meta.env.VITE_APIKEY ,
+  authDomain: import.meta.env.VITE_AUTHDOMAIN,
+  projectId: import.meta.env.VITE_PROJECTID,
+  storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+  messagingSenderId:  import.meta.env.VITE_MESSAGINGSENDERID,
+  appId: import.meta.env.VITE_APPID,
 };
 
 // Initialize Firebase

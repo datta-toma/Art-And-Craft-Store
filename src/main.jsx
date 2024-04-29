@@ -18,7 +18,8 @@ import CraftCardDetails from './Pages/AllArtCraft/CraftCardDetails.jsx';
 import MyCardList from './Pages/MyCardList/MyCardList.jsx';
 import PrivateRouter from './component/PrivateRouter/PrivateRouter.jsx';
 import Update from './Pages/Update/Update.jsx';
-import Delete from './Pages/Delete/Delete.jsx';
+
+import ArtCraftSection from './component/ArtCraftSection/ArtCraftSection.jsx';
 
 
 
@@ -65,14 +66,6 @@ const router = createBrowserRouter([
         loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`),
         element:<PrivateRouter><Update></Update></PrivateRouter>
       },
-      {
-        // {
-        //   path:'/delete/:id',
-        //   loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`),
-        //   element:<PrivateRouter><Delete></Delete></PrivateRouter>
-        // },
-        
-      }
       
    
     ]

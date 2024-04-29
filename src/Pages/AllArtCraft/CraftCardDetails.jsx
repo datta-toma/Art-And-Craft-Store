@@ -1,18 +1,22 @@
 import { useLoaderData } from "react-router-dom";
-
+import { Flip } from "react-awesome-reveal";
 
 const CraftCardDetails = () => {
 
     const details = useLoaderData();
    
-    // item_name, subcategory_name, short_description, price, rating , url, processing_time, stockStatus, User_Email, User_Name, Customization 
 
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row gap-10">
-                    <img src={details.url} className="max-w-sm rounded-lg shadow-2xl" />
+                  
+                   <Flip>
+                   <img src={details.url} className="max-w-sm rounded-lg shadow-2xl" />
+                   </Flip>
+                    
                     <div className="space-y-2 font-medium text-xl">
+                    <Flip>
                     <h1 className="text-5xl font-bold">{details.item_name}</h1>
                     <p>Subcategory Name: {details.subcategory_name}</p>
                     <p>Short description: {details.short_description}</p>
@@ -23,6 +27,7 @@ const CraftCardDetails = () => {
                     <p>StockStatus: {details.stockStatus}</p>
                     <p>Customization: {details. Customization}</p>
                     <p>Processing time: {details.processing_time}</p>
+                    </Flip>
                     </div>
                 </div>
             </div>
