@@ -8,7 +8,7 @@ const ContactUs = () => {
     return (
         <div>
             <h1 className="text-5xl font-extrabold text-center mt-12">Contact Us</h1>
-            <div className="hero min-h-screen">
+            <div className="hero  mt-20 mb-10">
                 <div className="hero-content flex-col lg:flex-row gap-28 lg:ml-32">
                     <img src={img} className="max-w-sm md:h-96 rounded-lg shadow-2xl" />
                     <div className='space-y-5'>

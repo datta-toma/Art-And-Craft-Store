@@ -1,9 +1,12 @@
 import { useLoaderData } from "react-router-dom";
 import CraftCrad from "./CraftCrad";
+import { useState } from "react";
 
 
 const AllArtCraft = () => {
-    const crafts = useLoaderData();
+    const loadedCrafts = useLoaderData();
+
+    const [crafts, setCrafts] = useState(loadedCrafts);
 
 
     return (
@@ -13,7 +16,9 @@ const AllArtCraft = () => {
           {
             crafts.length ? (
               crafts.map((craft) => (
-                <CraftCrad key={craft._id} craft={craft} />
+                <CraftCrad key={craft._id} craft={craft} 
+                crafts={crafts} setCrafts={setCrafts}
+                ></CraftCrad>
               ))
             ) : (
               <p>No crafts available</p> // Display a message if there are no crafts

@@ -1,49 +1,81 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../hook/useAuth";
 import { Link } from "react-router-dom";
-
+import Swal from "sweetalert2";
 
 const MyCardList = () => {
-    const { user} = useAuth() || {};
-    // console.log(user)
-    const [item, setItem] = useState([]);
-   
+  const { user } = useAuth() || {};
+  const [items, setItems] = useState([]); 
 
-    useEffect(() =>{
-        fetch(`http://localhost:5000/cardList/${user?.email}`)
-        .then(res => res.json())
-        .then(data =>{
-            setItem(data);
+  useEffect(() => {
+    if (user) {
+      fetch(`http://localhost:5000/cardList/${user.email}`)
+        .then((res) => res.json())
+        .then((data) => {
+          setItems(data); 
+        });
+    }
+  }, [user]);
+
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/craft/${_id}`, {
+          method: "DELETE",
         })
-    },[user])
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your craft item has been deleted.",
+                icon: "success",
+              });
 
-    return (
-        <div className="pt-10">
-          {
-            item.map(p=>(
-              <div key={p.id}>
-                <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={p.url} alt="Shoes" /></figure>
-                <div className="card-body">
-                <h2 className="card-title">{p.item_name}</h2>
-                    <p>Price: {p.price}</p>
-                    <p>Rating: {p.rating}</p>
-                    <p>Customization: {p.customization}</p>
-                    <p>stockStatus: {p.stockStatus}</p>
-                    <div className="card-actions justify-center">
-                      <Link to ={`/update/${p._id}`}>
-                      <button className="btn btn-primary">Update</button>
-                      </Link>
-                 
-                    <button className="btn btn-primary">Delete</button>
-                    </div>
-                </div>
-                </div>
+              const remainingItems = items.filter((item) => item._id !== _id);
+              setItems(remainingItems);
+            }
+          });
+      }
+    });
+  };
+
+  return (
+    <div className="pt-10">
+      {items.map((item) => (
+        <div key={item._id}> 
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure>
+              <img src={item.url} alt={item.item_name} /> 
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{item.item_name}</h2>
+              <p>Price: {item.price}</p>
+              <p>Rating: {item.rating}</p>
+              <p>Customization: {item.customization}</p>
+              <div className="card-actions justify-center">
+                <Link to={`/update/${item._id}`}>
+                  <button className="btn btn-primary">Update</button>
+                </Link>
+
+                <button onClick={() => handleDelete(item._id)} className="btn btn-primary">
+                  Delete
+                </button>
               </div>
-            ))
-          }
+            </div>
+          </div>
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default MyCardList;
