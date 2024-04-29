@@ -17,6 +17,7 @@ import AllArtCraft from './Pages/AllArtCraft/AllArtCraft.jsx';
 import CraftCardDetails from './Pages/AllArtCraft/CraftCardDetails.jsx';
 import MyCardList from './Pages/MyCardList/MyCardList.jsx';
 import PrivateRouter from './component/PrivateRouter/PrivateRouter.jsx';
+import Update from './Pages/Update/Update.jsx';
 
 
 
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
         path:'/list',
         element:<PrivateRouter><MyCardList></MyCardList></PrivateRouter>,
       },
+      {
+        path:'/update/:id',
+        loader:({params})=>fetch(`http://localhost:5000/craft/${params.id}`),
+        element:<PrivateRouter><Update></Update></PrivateRouter>
+      }
       
    
     ]

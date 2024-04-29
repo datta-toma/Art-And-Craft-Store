@@ -75,7 +75,7 @@ const AddCraft = () => {
                                  </select>
 
                                  <label className="block mt-4 mb-2">Customization</label>
-                                 <select className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter Customization"id="Customization"name="Customization">
+                                 <select className="w-full p-2 border rounded-md focus:outline-black"type="text"placeholder="Enter Customization"id="Customization"name="customization">
                                  <option value="Yes" selected>Yes</option>
                                   <option value="No" selected>No</option>
                                  </select>

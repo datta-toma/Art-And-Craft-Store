@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../hook/useAuth";
+import { Link } from "react-router-dom";
 
 
 const MyCardList = () => {
     const { user} = useAuth() || {};
     // console.log(user)
     const [item, setItem] = useState([]);
+   
 
     useEffect(() =>{
         fetch(`http://localhost:5000/cardList/${user?.email}`)
@@ -29,7 +31,10 @@ const MyCardList = () => {
                     <p>Customization: {p.customization}</p>
                     <p>stockStatus: {p.stockStatus}</p>
                     <div className="card-actions justify-center">
-                    <button className="btn btn-primary">Update</button>
+                      <Link to ={`/update/${p._id}`}>
+                      <button className="btn btn-primary">Update</button>
+                      </Link>
+                 
                     <button className="btn btn-primary">Delete</button>
                     </div>
                 </div>
