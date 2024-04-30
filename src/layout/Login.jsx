@@ -5,7 +5,8 @@ import useAuth from '../hook/useAuth';
 import { useState } from 'react';
 import Swal from "sweetalert2";
 import SocialLogin from "./SocialLogin";
-// import Spinner from "../layout/Spinner/Spinner";
+
+
 import "./log.css"; 
 
 const Login = () => {

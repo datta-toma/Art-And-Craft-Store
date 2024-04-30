@@ -52,7 +52,7 @@ const SingUp = () => {
              //   new user has been created
         const createAt = result.user?.metadata?.creationTime;
         const user ={email, createAt: createAt};
-        fetch('http://localhost:5000/user', {
+        fetch('https://art-and-craft-store-server-eight.vercel.app/user', {
             method:'POST',
             headers: {
                 'content-type' : 'application/json'

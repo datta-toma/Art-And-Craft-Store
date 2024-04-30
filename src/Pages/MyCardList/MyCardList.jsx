@@ -10,7 +10,7 @@ const MyCardList = () => {
 
   useEffect(() => {
     if (user) {
-      fetch(`http://localhost:5000/cardList/${user.email}`)
+      fetch(`https://art-and-craft-store-server-eight.vercel.app/cardList/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setItems(data); 
@@ -29,7 +29,7 @@ const MyCardList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/craft/${_id}`, {
+        fetch(`https://art-and-craft-store-server-eight.vercel.app/craft/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
