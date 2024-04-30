@@ -9,3 +9,4 @@
 -  Keep your craft portfolio fresh by updating existing projects with new information, photos, or additional details. This helps you maintain an active presence on the platform.
 -  Need to remove a project from your portfolio? Our platform lets you easily delete any craft project you no longer want to display.
 
+-  Package : React Awesome reveal,  React-tooltip
